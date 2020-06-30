@@ -27,21 +27,20 @@ statusText: string;
     for(let q =0 ; q<=10; q++){
       this.symbols[q] = res[q]
     }
-     
+     localStorage.setItem("symbols",JSON.stringify(this.symbols))
     })
 
     this.subscription = timer(0,5000).subscribe((res)=>{
       this.test.getSymbolData().subscribe((res)=>{
-      //  console.log(res)
+     
         for(let q =0 ; q<=10; q++){
-        //  console.log(res[q])
+        
            this.compareSymbols[q] =res[q]
                        
         }
-       //console.log(this.compareSymbols[2].price)
+       
         for(let h =0; h<=10; h++){
-         //console.log( this.compareSymbols[h].price)
-          if(this.compareSymbols[h].price !=this.symbols[h].price){
+                  if(this.compareSymbols[h].price !=this.symbols[h].price){
            
               this.vars = true
           }
@@ -55,7 +54,7 @@ statusText: string;
     })
   
   }
-  abcd(){
+  showAddSymbol(){
     this.isInputProvided = true
     console.log("hello ")
   }
